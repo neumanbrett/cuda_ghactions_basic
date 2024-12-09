@@ -1,0 +1,50 @@
+name: casper-a100
+run-name: ${{ github.actor }} compiling and running CUDA hello world example
+on:
+  pull_request:
+    types:
+      - labeled
+
+jobs:
+  
+  build-and-run:
+    runs-on: hpc-runner
+    if: |
+      github.event.label.name == 'casper-a100' &&
+      github.repository == 'neumanbrett/fasteddy_cicd'
+
+    env:
+      USER: bneuman
+      PBS_ACCOUNT: SCSG0001
+
+    steps:
+      - name: Check out the repository code
+        uses: actions/checkout@v3
+
+      - name: Source system variables based on label
+        if: github.event.label.name == 'casper-a100'
+        run: |
+          echo ""
+
+      - name: Run make
+        run: make
+
+      - name: Verify compilation
+        run: |
+          if [ ! -f path/to/compiled/binary ]; then
+            echo "Compilation failed: binary not found"
+            exit 1
+          fi
+
+      - name: Run test
+        run: make check
+
+      - name: Run the binary
+        run: path/to/compiled/binary
+
+      - name: Verify run
+        run: |
+          if [ $? -ne 0 ]; then
+            echo "Run failed"
+            exit 1
+          fi
