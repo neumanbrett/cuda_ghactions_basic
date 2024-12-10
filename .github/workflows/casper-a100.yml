@@ -70,5 +70,4 @@ jobs:
             exit 1
           fi
           cat validate/validate_job.log
-          rm validate/validate_job.log
-          if 
+          rm validate/validate_job.log 
