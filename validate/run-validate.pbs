@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#PBS -A SCSG0001
+#PBS -q casper
+#PBS -N actions_cuda_validate
+#PBS -l select=1:ncpus=4:mem=4GB:ngpus=1
+#PBS -l gpu_type=a100
+#PBS -l walltime=01:00:00
+#PBS -j oe
+#PBS -o /glade/work/bneuman/tools/github_actions/cuda_ghactions_basic/validate/validate_job.out
+
+cd $PBS_O_WORKDIR
+
+# Load modules
+source $PBS_O_WORKDIR/config/config.modules
+
+# Run the validation script
+$PBS_O_WORKDIR/bin/hello_world &> $PBS_O_WORKDIR/validate/validate_job.log

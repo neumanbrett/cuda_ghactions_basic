@@ -1,0 +1,7 @@
+export PBS_ACCOUNT_GH="SCSG0001"
+export PBS_USER="bneuman"  
+export PBS_NCPUS="1"
+export PBS_MPIPROCS="1"
+export PBS_NGPUS="1"
+export PBS_GPUTYPE="a100"
+export PBS_WALLTIME="00:10:00"
