@@ -1,3 +1,0 @@
-mkdir -p bin
-nvcc -o bin/hello_world src/hello_world.cu
-Success: bin/hello_world
