@@ -61,7 +61,7 @@ jobs:
             echo "Run failed: validate_job.log not found"
             exit 1
           fi
-          if [ $(grep -c "Hello World" validate/validate_job.log) -ne 2 ]; then
+          if [ $(grep -c "Hello, World" validate/validate_job.log) -ne 2 ]; then
             echo "Run failed: validate_job.log does not contain 'Hello World' in both lines"
             exit 1
           fi
