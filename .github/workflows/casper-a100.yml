@@ -43,6 +43,7 @@ jobs:
             echo "Compilation failed: make.log does not end with 'Success'"
             exit 1
           fi
+          cat make.log
           rm make.log
 
       - name: Submit PBS job to run executable
