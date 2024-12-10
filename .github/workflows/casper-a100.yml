@@ -61,8 +61,12 @@ jobs:
             echo "Run failed: validate_job.log not found"
             exit 1
           fi
-          if [ $(grep -c "Hello, World" validate/validate_job.log) -ne 2 ]; then
-            echo "Run failed: validate_job.log does not contain 'Hello World' in both lines"
+          if ! grep -q "CPU" validate/validate_job.log; then
+            echo "The job did not run on the CPU"
+            exit 1
+          fi
+          if ! grep -q "GPU" validate/validate_job.log; then
+            echo "The job did not run on the GPU"
             exit 1
           fi
           cat validate/validate_job.log
