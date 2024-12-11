@@ -21,7 +21,7 @@ jobs:
       - name: Check out the repository code
         uses: actions/checkout@v3
 
-      - name: Source system variables based on label
+      - name: Source system variables
         run: |
           source config/config.modules
           source config/config.pbs
