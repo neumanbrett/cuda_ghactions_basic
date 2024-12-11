@@ -48,7 +48,9 @@ jobs:
 
       - name: Submit PBS job to run executable
         #run: JOBID = $(qsub -A $PBS_ACCOUNT -l select=1:ncpus=1:ngpus=1:mem=10GB:gpu_model=a100 -l walltime=00:05:00 -N hello_world -o hello_world.out -e hello_world.err bin/hello_world)
-        run: qsub validate/run-validate.pbs
+        run: |
+          echo $USER
+          qsub validate/run-validate.pbs
 
       # Right now this is a very simple way to wait, should have wait to check start, finish, timeout, etc
       - name: Wait for PBS job to finish

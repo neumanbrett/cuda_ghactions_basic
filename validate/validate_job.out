@@ -1,1 +1,3 @@
 Working Directory: /glade/work/bneuman/tools/github_actions/cuda_ghactions_basic
+/var/spool/pbs/mom_priv/jobs/3205578.casper-pbs.SC: line 15: /glade/work/bneuman/tools/github_actions/cuda_ghactions_basic/validate/config/config.modules: No such file or directory
+/var/spool/pbs/mom_priv/jobs/3205578.casper-pbs.SC: line 18: /glade/work/bneuman/tools/github_actions/cuda_ghactions_basic/validate/validate/validate_job.log: No such file or directory
