@@ -8,7 +8,7 @@ on:
 jobs:
   
   build-and-run:
-    runs-on: cron-hpc-runner
+    runs-on: basic-runner
     if: |
       github.event.label.name == 'casper-a100' &&
       github.repository == 'neumanbrett/cuda_ghactions_basic'
