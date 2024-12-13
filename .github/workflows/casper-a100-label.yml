@@ -5,11 +5,6 @@ on:
     types:
       - labeled
 
-# Workflow global variables
-env:
-  WORKFLOW_REPO: neumanbrett/cuda_ghactions_basic
-  WORKFLOW_RUNNER: basic-runner
-
 jobs:
   
   build-and-run:
@@ -27,8 +22,8 @@ jobs:
       WORKFLOW_MODULES: config/config.modules
       WORKFLOW_RUN_LOG: $SCRATCH/tmp/validation_job.log.$(date +"%d-%m-%Y")
 
-    runs-on: "${{ env.WORKFLOW_RUNNER }}"
-    if: github.event.label.name == "${{ env.WORKFLOW_LABEL }}" && github.repository == "${{ env.WORKFLOW_REPO }}"
+    runs-on: basic-runner
+    if: github.event.label.name == "casper-a100" && github.repository == "neumanbrett/cuda_ghactions_basic"
 
     steps:
       - name: Check out the repository code
