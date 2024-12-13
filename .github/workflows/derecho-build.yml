@@ -1,12 +1,11 @@
-name: Casper A100 Build
-run-name: ${{ github.actor }} compile CUDA code for Casper A100
+name: Derecho Test
+run-name: ${{ github.actor }} runtime test for CUDA code on Casper A100
 on:
   workflow_call:
 
 jobs:
-
+  
   build:
-    name: Building for Casper A100
 
     steps:
       - name: Check out the repository code

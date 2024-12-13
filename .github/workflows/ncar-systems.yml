@@ -35,5 +35,4 @@ jobs:
       github.event.label.name == matrix.label
 
     name: Running on Derecho
-    # Require the build job to complete before running
     uses: ./.github/workflows/derecho.yml
