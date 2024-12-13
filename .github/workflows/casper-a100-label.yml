@@ -28,7 +28,7 @@ jobs:
       WORKFLOW_RUN_LOG: $SCRATCH/tmp/validation_job.log.$(date +"%d-%m-%Y")
 
     runs-on: "${{ env.WORKFLOW_RUNNER }}"
-    if: github.event.label.name == ${{ env.WORKFLOW_LABEL }} && github.repository == ${{ env.WORKFLOW_REPO }}
+    if: github.event.label.name == "${{ env.WORKFLOW_LABEL }}" && github.repository == "${{ env.WORKFLOW_REPO }}"
 
     steps:
       - name: Check out the repository code
