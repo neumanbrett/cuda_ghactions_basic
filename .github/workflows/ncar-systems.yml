@@ -9,17 +9,13 @@ jobs:
 
   casper-workflow:
 
-    env:
-      WORKFLOW_REPOSITORY: neumanbrett/cuda_ghactions_basic
-      WORKFLOW_RUNNER: basic-runner
-
-    runs-on: ${{ env.WORKFLOW_RUNNER }}
+    runs-on: basic-runner
     strategy:
       matrix:
         label: [casper, casper-a100, casper-v100]
 
     if: |
-      github.repository == ${{ env.WORKFLOW_REPOSITORY }} &&
+      github.repository == neumanbrett/cuda_ghactions_basic &&
       github.event.label.name == matrix.label
 
     name: Running on Casper
@@ -27,17 +23,13 @@ jobs:
 
   derecho-workflow:
 
-    env:
-      WORKFLOW_REPOSITORY: neumanbrett/cuda_ghactions_basic
-      WORKFLOW_RUNNER: basic-runner
-
-    runs-on: ${{ env.WORKFLOW_RUNNER }}
+    runs-on: basic-runner
     strategy:
       matrix:
         label: [derecho]
 
     if: |
-      github.repository == ${{ env.WORKFLOW_REPOSITORY }} &&
+      github.repository == neumanbrett/cuda_ghactions_basic &&
       github.event.label.name == matrix.label
 
     name: Running on Derecho
