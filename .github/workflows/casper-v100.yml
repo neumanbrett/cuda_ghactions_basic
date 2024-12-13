@@ -1,0 +1,22 @@
+name: Casper V100 Build and Test CUDA Hello World
+run-name: ${{ github.actor }} compiling and running CUDA hello world example for Casper V100
+on:
+  workflow_call:
+
+jobs:
+
+  casper-v100-build:
+
+    if: github.event.label.name == casper-v100
+
+    name: Building on Casper V100
+    uses: ./.github/workflows/casper-v100-build.yml
+
+  casper-v100-test:
+  
+    if: github.event.label.name == casper-v100
+  
+    name: Testing on Casper A100
+    # Waits for the build job to complete before running
+    needs: casper-v100-build
+    uses: ./.github/workflows/casper-v100-test.yml

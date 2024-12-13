@@ -1,0 +1,22 @@
+name: Casper V100 Build
+run-name: ${{ github.actor }} compile CUDA code for Casper V100
+on:
+  workflow_call:
+
+jobs:
+
+  build:
+    name: Building for Casper A100
+
+    steps:
+      - name: Check out the repository code
+        uses: actions/checkout@v3
+
+      - name: Load modules
+        run: |
+          module --force purge
+          module load ncarenv/23.10 nvhpc/23.7 openmpi/4.1.6 ncarcompilers/1.0.0 cuda/12.2.1 ucx/1.14.1
+          module load netcdf/4.9.2 hdf5/1.12.2
+
+      - name: Run make
+        run: make
