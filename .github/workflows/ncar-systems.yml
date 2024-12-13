@@ -5,13 +5,14 @@ on:
     types:
       - labeled
 
-env:
-  WORKFLOW_REPOSITORY: neumanbrett/cuda_ghactions_basic
-  WORKFLOW_RUNNER: basic-runner
-
 jobs:
 
   casper-workflow:
+
+    env:
+      WORKFLOW_REPOSITORY: neumanbrett/cuda_ghactions_basic
+      WORKFLOW_RUNNER: basic-runner
+
     runs-on: ${{ env.WORKFLOW_RUNNER }}
     strategy:
       matrix:
@@ -25,6 +26,11 @@ jobs:
     uses: ./.github/workflows/casper.yml
 
   derecho-workflow:
+
+    env:
+      WORKFLOW_REPOSITORY: neumanbrett/cuda_ghactions_basic
+      WORKFLOW_RUNNER: basic-runner
+
     runs-on: ${{ env.WORKFLOW_RUNNER }}
     strategy:
       matrix:
