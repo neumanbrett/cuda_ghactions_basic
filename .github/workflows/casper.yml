@@ -1,0 +1,25 @@
+name: Casper Build and Test CUDA Hello World
+run-name: ${{ github.actor }} compiling and running CUDA hello world example for Casper
+on:
+  workflow_call:
+
+env:
+  WORKFLOW_REPOSITORY: neumanbrett/cuda_ghactions_basic
+  WORKFLOW_RUNNER: basic-runner
+
+jobs:
+
+  casper-workflow:
+    runs-on: ${{ env.WORKFLOW_RUNNER }}
+    strategy:
+      matrix:
+        label: [casper, casper-a100, casper-v100]
+
+    if: |
+      github.repository == ${{ env.WORKFLOW_REPOSITORY }} &&
+      ( github.event.label.name == casper ||
+        github.event.label.name == casper-a100
+      )
+
+    name: Running on Casper
+    uses: ./.github/workflows/casper-workflow.yml

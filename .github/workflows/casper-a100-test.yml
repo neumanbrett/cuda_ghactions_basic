@@ -1,0 +1,23 @@
+name: Casper A100 Test
+run-name: ${{ github.actor }} runtime test for CUDA code on Casper A100
+on:
+  workflow_call:
+
+jobs:
+  
+  test:
+    env:
+      # NCAR System Variables
+      WORKFLOW_PBS_JOBSCRIPT: validate/run-validate.pbs
+      WORKFLOW_RUN_LOGFILE: 
+
+    steps:
+      - name: Check out the repository code
+        uses: actions/checkout@v3
+      
+      # This step will check that the PBS job ran successfully (return code 0)
+      - name: Submit PBS job
+        run: qsub -Wblock=true ${{ env.WORKFLOW_PBS_JOBSCRIPT }}
+
+      - name: Verifying output
+        run: 
