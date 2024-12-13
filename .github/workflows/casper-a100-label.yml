@@ -23,7 +23,7 @@ jobs:
       WORKFLOW_RUN_LOG: $SCRATCH/tmp/validation_job.log.$(date +"%d-%m-%Y")
 
     runs-on: basic-runner
-    if: github.event.label.name == "casper-a100" && github.repository == "neumanbrett/cuda_ghactions_basic"
+    if: github.event.label.name == casper-a100 && github.repository == neumanbrett/cuda_ghactions_basic
 
     steps:
       - name: Check out the repository code
