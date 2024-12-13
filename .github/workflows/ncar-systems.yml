@@ -5,11 +5,11 @@ on:
     types:
       - labeled
 
-jobs:
+env:
+  WORKFLOW_REPOSITORY: neumanbrett/cuda_ghactions_basic
+  WORKFLOW_RUNNER: basic-runner
 
-  env:
-    WORKFLOW_REPOSITORY: neumanbrett/cuda_ghactions_basic
-    WORKFLOW_RUNNER: basic-runner
+jobs:
 
   casper-workflow:
     runs-on: ${{ env.WORKFLOW_RUNNER }}
