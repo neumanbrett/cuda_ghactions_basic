@@ -27,10 +27,8 @@ jobs:
       WORKFLOW_MODULES: config/config.modules
       WORKFLOW_RUN_LOG: $SCRATCH/tmp/validation_job.log.$(date +"%d-%m-%Y")
 
-    runs-on: ${{ env.WORKFLOW_RUNNER }}
-    if: |
-      github.event.label.name == ${{ env.WORKFLOW_LABEL }} &&
-      github.repository == ${{ env.WORKFLOW_REPO }}
+    runs-on: "${{ env.WORKFLOW_RUNNER }}"
+    if: github.event.label.name == ${{ env.WORKFLOW_LABEL }} && github.repository == ${{ env.WORKFLOW_REPO }}
 
     steps:
       - name: Check out the repository code
@@ -58,7 +56,7 @@ jobs:
 
       - name: Submit PBS job and run tests
         run: |
-          qsub -Wblock=true ${{ env.WORKFLOW_PBS_JOBSCRIPT }}
+          qsub -Wblock=true $WORKFLOW_PBS_JOBSCRIPT
 
       # - name: Verify run
       #   run: |
