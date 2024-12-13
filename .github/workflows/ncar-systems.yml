@@ -9,7 +9,6 @@ jobs:
 
   casper-workflow:
 
-    runs-on: basic-runner
     strategy:
       matrix:
         label: [casper, casper-a100, casper-v100]
@@ -23,7 +22,6 @@ jobs:
 
   derecho-workflow:
 
-    runs-on: basic-runner
     strategy:
       matrix:
         label: [derecho]

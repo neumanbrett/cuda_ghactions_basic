@@ -6,6 +6,8 @@ on:
 jobs:
 
   build:
+    runs-on: basic-runner
+    
     name: Building for Casper A100
 
     steps:

@@ -6,6 +6,7 @@ on:
 jobs:
   
   test:
+    runs-on: basic-runner
 
     env:
       WORKFLOW_PBS_JOBSCRIPT: validate/run-validate.sh
